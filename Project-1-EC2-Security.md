@@ -6,81 +6,49 @@
 ![EC2](https://img.shields.io/badge/EC2-Compute-blue?style=for-the-badge&logo=amazon-ec2)
 ![Security](https://img.shields.io/badge/Security-Hardening-red?style=for-the-badge&logo=security)
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
-![Level](https://img.shields.io/badge/Level-Beginner-green?style=for-the-badge)
 
-<img src="assets/ec2-security-hero.png" width="500" alt="EC2 Security"/>
+<!-- Animated Server GIF -->
+<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="400" alt="Server GIF"/>
 
-**A comprehensive hands-on guide to securing AWS EC2 instances from launch to production-ready hardening**
+**A comprehensive hands-on guide to securing AWS EC2 instances**
 
 [Overview](#-introduction) •
 [Exercises](#-exercises) •
-[Best Practices](#-security-checklist) •
+[Checklist](#-security-checklist) •
 [Resources](#-additional-resources)
 
 </div>
 
 ---
 
-## 📋 Table of Contents
-
-- [Introduction](#-introduction)
-- [Prerequisites](#-prerequisites)
-- [Architecture Overview](#-architecture-overview)
-- [Lab Setup & Tools](#️-lab-setup--tools)
-- [Exercises](#-exercises)
-- [Security Checklist](#-security-checklist)
-- [Troubleshooting](#-troubleshooting)
-- [Additional Resources](#-additional-resources)
-
----
-
 ## 📖 Introduction
 
-In this project, you'll learn how to secure AWS EC2 instances from the ground up. We'll cover essential concepts including setting up security groups, configuring key pairs for SSH access, hardening the operating system, and implementing monitoring best practices.
+<img align="right" src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385b1be58e.gif" width="180" alt="Coding GIF"/>
+
+In this project, you'll learn how to secure AWS EC2 instances from the ground up:
+
+- 🔐 SSH Key-based Authentication
+- 🛡️ Security Group Configuration
+- 🖥️ OS & SSH Hardening
+- 📊 CloudWatch Monitoring
 
 | Attribute | Details |
 |-----------|---------|
-| ⏱️ **Time to Complete** | 60-90 minutes |
-| 📚 **Difficulty Level** | Beginner |
-| 💰 **AWS Cost** | Free Tier Eligible |
-| 🔧 **Services Used** | EC2, Security Groups, CloudWatch |
+| ⏱️ **Duration** | 60-90 minutes |
+| 📚 **Level** | Beginner |
+| 💰 **Cost** | Free Tier |
+
+<br clear="right"/>
 
 ---
 
 ## 📋 Prerequisites
 
-| Requirement | Description | Status |
-|-------------|-------------|--------|
-| ☁️ **Cloud Knowledge** | Basic understanding of cloud computing | Required |
-| 🔐 **AWS Account** | AWS account (free tier available) | Required |
-| 💻 **CLI Knowledge** | Basic command-line interface | Required |
-
----
-
-## 🏗️ Architecture Overview
-
-<div align="center">
-
-<img src="assets/ec2-security-architecture.png" width="400" alt="EC2 Security Architecture"/>
-
-*EC2 Security Architecture - Security Groups, SSH Key Access, CloudWatch Monitoring*
-
-</div>
-
----
-
-## 🛠️ Lab Setup & Tools
-
-| Tool | Purpose | Installation |
-|------|---------|--------------|
-| **AWS Account** | Cloud resources | [Sign up free](https://aws.amazon.com/free/) |
-| **AWS CLI** | Command-line management | [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) |
-| **SSH Client** | Secure connection | Built-in (Linux/Mac) or [PuTTY](https://www.putty.org/) |
-
-```bash
-# Verify AWS CLI installation
-aws --version
-```
+| Requirement | Description |
+|-------------|-------------|
+| ☁️ AWS Account | [Sign up free](https://aws.amazon.com/free/) |
+| 💻 AWS CLI | [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) |
+| 🔑 SSH Client | Built-in or [PuTTY](https://www.putty.org/) |
 
 ---
 
@@ -88,115 +56,117 @@ aws --version
 
 ### Exercise 1: Launch an EC2 Instance
 
+<img align="right" src="https://user-images.githubusercontent.com/74038190/212281775-b468df30-4edc-4bf8-a4ee-f52e1aaddc86.gif" width="150" alt="Shield GIF"/>
+
 | Step | Action |
 |------|--------|
-| 1 | Log in to [AWS Management Console](https://aws.amazon.com/console/) |
-| 2 | Navigate to EC2 Dashboard → Launch Instance |
-| 3 | Choose **Amazon Linux 2023 AMI** (Free tier) |
-| 4 | Select **t2.micro** instance type |
-| 5 | Configure Security Group (SSH from your IP only) |
-| 6 | Create key pair → Download `.pem` file |
-| 7 | Launch Instance |
+| 1 | Log in to [AWS Console](https://aws.amazon.com/console/) |
+| 2 | EC2 Dashboard → Launch Instance |
+| 3 | Choose **Amazon Linux 2023** |
+| 4 | Select **t2.micro** (free tier) |
+| 5 | Configure Security Group |
+| 6 | Create & download key pair |
 
-> ⚠️ **Security Warning:** Never allow SSH from `0.0.0.0/0` in production!
+<br clear="right"/>
+
+> ⚠️ **Never allow SSH from `0.0.0.0/0` in production!**
 
 ---
 
-### Exercise 2: Connect to Your EC2 Instance
+### Exercise 2: Connect to Your Instance
+
+<img align="right" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="180" alt="Terminal GIF"/>
 
 ```bash
-# Set correct permissions (Linux/Mac)
-chmod 400 my-secure-key.pem
+# Set key permissions
+chmod 400 my-key.pem
 
 # Connect via SSH
-ssh -i "my-secure-key.pem" ec2-user@<your-instance-public-dns>
+ssh -i "my-key.pem" ec2-user@<public-dns>
 ```
 
-**Windows (PowerShell):**
+**Windows PowerShell:**
 ```powershell
-icacls my-secure-key.pem /inheritance:r
-icacls my-secure-key.pem /grant:r "$($env:USERNAME):(R)"
+icacls my-key.pem /inheritance:r
+icacls my-key.pem /grant:r "$($env:USERNAME):(R)"
 ```
+
+<br clear="right"/>
 
 ---
 
-### Exercise 3: Update and Secure Your Instance
+### Exercise 3: Harden Your Instance
 
 ```bash
-# Update system packages
-sudo yum update -y && sudo yum upgrade -y
+# Update system
+sudo yum update -y
 
 # Create non-root user
 sudo adduser secadmin
 sudo usermod -aG wheel secadmin
 ```
 
-**SSH Hardening (`/etc/ssh/sshd_config`):**
+**SSH Hardening** (`/etc/ssh/sshd_config`):
 
 ```bash
 PermitRootLogin no
 PasswordAuthentication no
 MaxAuthTries 3
-ClientAliveInterval 300
 ```
 
 ```bash
-# Apply changes
 sudo systemctl restart sshd
 ```
 
 ---
 
-### Exercise 4: Configure Security Groups
+### Exercise 4: Security Groups
 
-| Type | Protocol | Port | Source |
-|------|----------|------|--------|
-| SSH | TCP | 22 | Your IP/32 |
-
-> ❌ Remove any `0.0.0.0/0` inbound rules!
+| Type | Port | Source |
+|------|------|--------|
+| SSH | 22 | **Your IP only** |
 
 ---
 
-### Exercise 5: Set Up CloudWatch Monitoring
+### Exercise 5: CloudWatch Monitoring
 
 | Setting | Value |
 |---------|-------|
 | Metric | CPUUtilization |
-| Threshold | > 80% for 5 min |
-| Action | Send email notification |
+| Threshold | > 80% |
+| Action | Email alert |
 
 ---
 
 ## ✅ Security Checklist
 
-| Security Control | Status |
-|-----------------|--------|
+| Control | Status |
+|---------|--------|
 | Non-root user created | ⬜ |
 | SSH key-based auth only | ⬜ |
 | Root login disabled | ⬜ |
-| Security Group restricts SSH to your IP | ⬜ |
-| System packages updated | ⬜ |
-| CloudWatch alarm configured | ⬜ |
+| Security Group restricts SSH | ⬜ |
+| Packages updated | ⬜ |
+| CloudWatch configured | ⬜ |
 
 ---
 
 ## 🔧 Troubleshooting
 
 <details>
-<summary><strong>❌ SSH Connection Timeout</strong></summary>
+<summary><strong>❌ Connection Timeout</strong></summary>
 
 Check Security Group allows your IP:
 ```bash
-curl ifconfig.me  # Get your public IP
+curl ifconfig.me
 ```
 </details>
 
 <details>
-<summary><strong>❌ Permission Denied (publickey)</strong></summary>
+<summary><strong>❌ Permission Denied</strong></summary>
 
 ```bash
 chmod 400 your-key.pem
-ssh -i your-key.pem ec2-user@<ip>
 ```
 </details>
 
@@ -204,17 +174,17 @@ ssh -i your-key.pem ec2-user@<ip>
 
 ## 📚 Additional Resources
 
-| Resource | Link |
-|----------|------|
-| EC2 Security Best Practices | [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security.html) |
-| Security Groups | [VPC Docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html) |
-| CloudWatch | [Monitoring Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) |
+- [EC2 Security Best Practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security.html)
+- [Security Groups](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html)
+- [CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)
 
 ---
 
 ## 👤 Author
 
 <div align="center">
+
+<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="150" alt="Dev GIF"/>
 
 **Amresh Kumar**
 

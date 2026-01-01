@@ -7,93 +7,71 @@
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Beginner-green?style=for-the-badge)
 
-<img src="assets/iam-policy-hero.png" width="500" alt="IAM Policy"/>
+<!-- Animated Shield GIF -->
+<img src="https://user-images.githubusercontent.com/74038190/212281775-b468df30-4edc-4bf8-a4ee-f52e1aaddc86.gif" width="400" alt="Security GIF"/>
 
-**A hands-on guide to implementing the Principle of Least Privilege using AWS IAM custom policies**
+**A hands-on guide to implementing the Principle of Least Privilege**
 
 [Overview](#-project-overview) •
 [Implementation](#-step-by-step-implementation) •
-[Testing](#phase-3-cli-configuration--testing) •
-[Best Practices](#-security-best-practices-implemented)
+[Testing](#phase-3-cli-testing) •
+[Best Practices](#-security-best-practices)
 
 </div>
-
----
-
-## 📋 Table of Contents
-
-- [Project Overview](#-project-overview)
-- [Prerequisites](#-prerequisites)
-- [Objectives](#-objectives)
-- [Architecture Diagram](#-architecture-diagram)
-- [Step-by-Step Implementation](#-step-by-step-implementation)
-- [Use Case Scenarios](#-use-case-scenarios)
-- [Security Best Practices](#-security-best-practices-implemented)
-- [Learning Outcomes](#-learning-outcomes)
 
 ---
 
 ## 📖 Project Overview
 
-This project demonstrates the implementation of the **Principle of Least Privilege** in AWS. The goal was to move away from using root accounts by creating a specialized IAM user with strictly limited permissions.
+<img align="right" src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="180" alt="Security GIF"/>
+
+This project demonstrates the **Principle of Least Privilege** in AWS:
+
+- 🆔 Create dedicated IAM user
+- 📜 Write custom JSON policies
+- 🔒 Restrict access to specific resources
+- 🧪 Test with AWS CLI
 
 | Attribute | Details |
 |-----------|---------|
-| ⏱️ **Time to Complete** | 30-45 minutes |
-| 📚 **Difficulty Level** | Beginner-Intermediate |
-| 💰 **AWS Cost** | Free Tier Eligible |
-| 🔧 **Services Used** | IAM, S3, AWS CLI |
+| ⏱️ **Duration** | 30-45 minutes |
+| 📚 **Level** | Beginner-Intermediate |
+| 💰 **Cost** | Free Tier |
+
+<br clear="right"/>
 
 ---
 
 ## 📋 Prerequisites
 
-- [ ] AWS Account with Administrator access
-- [ ] AWS CLI installed ([Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html))
-- [ ] Basic understanding of JSON syntax
-- [ ] An existing S3 bucket for testing
-
----
-
-## 🎯 Objectives
-
-| Objective | Description |
-|-----------|-------------|
-| 🆔 **Identity Management** | Create programmatic user (`s3-read-user`) |
-| 🔒 **Access Control** | Custom IAM policy with JSON |
-| ✅ **Verification** | Test permissions with AWS CLI |
-
----
-
-## 🏗️ Architecture Diagram
-
-<div align="center">
-
-<img src="assets/iam-policy-architecture.png" width="400" alt="IAM Policy Architecture"/>
-
-*IAM User with Custom Policy - Only allowed S3 bucket access, others denied*
-
-</div>
+- [ ] AWS Account with Admin access
+- [ ] AWS CLI installed
+- [ ] Basic JSON knowledge
+- [ ] An S3 bucket for testing
 
 ---
 
 ## 🛠️ Step-by-Step Implementation
 
-### Phase 1: IAM User Configuration
+### Phase 1: Create IAM User
 
-1. Navigate to **IAM Dashboard** → **Users** → **Add user**
+<img align="right" src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385b1be58e.gif" width="150" alt="Coding GIF"/>
+
+1. Go to **IAM Dashboard** → **Users** → **Add user**
 2. Configure:
 
 | Setting | Value |
 |---------|-------|
-| **Username** | `s3-read-user` |
-| **Access Type** | Programmatic Access |
+| Username | `s3-read-user` |
+| Access Type | Programmatic |
 
-> ⚠️ Save the Access Key ID and Secret Access Key securely!
+> ⚠️ Save your Access Key ID and Secret Key!
+
+<br clear="right"/>
 
 ---
 
-### Phase 2: Defining the Security Policy (JSON)
+### Phase 2: Create Custom Policy
 
 ```json
 {
@@ -115,110 +93,106 @@ This project demonstrates the implementation of the **Principle of Least Privile
 }
 ```
 
-| Component | Purpose |
-|-----------|---------|
+| Permission | Purpose |
+|------------|---------|
 | `s3:ListBucket` | List objects in bucket |
-| `s3:GetObject` | Download/read files |
-| **Resource** | Locked to specific bucket only |
+| `s3:GetObject` | Download files |
 
 ---
 
-### Phase 3: CLI Configuration & Testing
+### Phase 3: CLI Testing
 
-**Configure AWS CLI:**
+<img align="right" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="180" alt="Terminal GIF"/>
 
+**Configure Profile:**
 ```bash
 aws configure --profile s3-user
-# Enter: Access Key ID, Secret Key, us-east-1, json
 ```
 
 **Test Allowed Access:**
-
 ```bash
 aws s3 ls s3://my-secure-bucket --profile s3-user
-# ✅ Success: Lists files
+# ✅ Success!
 ```
 
 **Test Denied Access:**
-
 ```bash
 aws s3 ls s3://other-bucket --profile s3-user
 # ❌ Access Denied (as expected!)
 ```
 
+<br clear="right"/>
+
 ---
 
-## 🚀 Use Case Scenarios
+## 🚀 Use Cases
 
-| Use Case | Description |
+| Scenario | Description |
 |----------|-------------|
-| 🔌 **Third-party Apps** | Read-only access to specific logs |
-| 👨‍💻 **Developers** | Fetch assets without admin rights |
-| ⚙️ **Microservices** | Read configuration files only |
-| 🔄 **CI/CD Pipelines** | Read access to artifact buckets |
+| 🔌 Third-party Apps | Read-only log access |
+| 👨‍💻 Developers | Fetch assets only |
+| ⚙️ Microservices | Read config files |
+| 🔄 CI/CD | Artifact bucket access |
 
 ---
 
-## 🔐 Security Best Practices Implemented
+## 🔐 Security Best Practices
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="300" alt="Security GIF"/>
+
+</div>
 
 | Practice | Status |
 |----------|--------|
-| Least Privilege (explicit allowances only) | ✅ |
-| Resource constraints (specific ARNs) | ✅ |
+| Least Privilege | ✅ |
+| Specific Resource ARNs | ✅ |
 | No hardcoded credentials | ✅ |
 | Separation of duties | ✅ |
 
 ---
 
-## ⚠️ Credential Management
-
-| Method | Best For | Security |
-|--------|----------|----------|
-| **AWS CLI Profiles** | Dev workstations | ⭐⭐⭐ |
-| **IAM Roles** | EC2/Lambda | ⭐⭐⭐⭐⭐ |
-| **Secrets Manager** | Production | ⭐⭐⭐⭐⭐ |
+## ⚠️ Credential Safety
 
 ```bash
-# ❌ DON'T: Hardcode credentials
-# ✅ DO: Use profiles or IAM roles
+# ❌ DON'T
+export AWS_ACCESS_KEY_ID="AKIA..."
+
+# ✅ DO
 aws s3 ls --profile s3-user
 ```
+
+| Method | Security |
+|--------|----------|
+| CLI Profiles | ⭐⭐⭐ |
+| IAM Roles | ⭐⭐⭐⭐⭐ |
+| Secrets Manager | ⭐⭐⭐⭐⭐ |
 
 ---
 
 ## 📊 Learning Outcomes
 
-- [x] Create IAM users with programmatic access
-- [x] Write custom JSON policies
-- [x] Inline vs managed policies
-- [x] Test IAM permissions via CLI
-- [x] Principle of Least Privilege
-
----
-
-## 🔄 Future Improvements
-
-| Enhancement | Priority |
-|-------------|----------|
-| 🔐 MFA Enforcement | High |
-| 🎭 IAM Roles for EC2 | High |
-| 🔔 CloudWatch Alerts | Medium |
+- [x] Create IAM users
+- [x] Write JSON policies  
+- [x] Test with AWS CLI
+- [x] Least Privilege principle
 
 ---
 
 ## 📚 Resources
 
-| Resource | Link |
-|----------|------|
-| IAM Best Practices | [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) |
-| S3 Bucket Policies | [S3 Docs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html) |
-| Policy Simulator | [AWS Tool](https://policysim.aws.amazon.com/) |
+- [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+- [S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html)
+- [Policy Simulator](https://policysim.aws.amazon.com/)
 
 ---
 
 ## 👤 Author
 
 <div align="center">
+
+<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="150" alt="Dev GIF"/>
 
 **Amresh Kumar**
 
@@ -231,7 +205,7 @@ aws s3 ls --profile s3-user
 
 <div align="center">
 
-**⭐ Star this repo if it helped you understand IAM policies!**
+**⭐ Star this repo if it helped you!**
 
 [🔝 Back to Top](#️-project-2-implementing-least-privilege-with-aws-iam)
 

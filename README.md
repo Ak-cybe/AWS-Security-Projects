@@ -10,6 +10,9 @@
 
 <div align="center">
 
+<!-- Animated Security GIF -->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="500" alt="Security Animation"/>
+
 ![AWS](https://img.shields.io/badge/AWS-Cloud-orange?style=for-the-badge&logo=amazon-aws)
 ![Security](https://img.shields.io/badge/Security-Hardening-red?style=for-the-badge&logo=security)
 ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
@@ -19,17 +22,23 @@
 [![GitHub stars](https://img.shields.io/github/stars/Ak-cybe/AWS-Security-Projects?style=social)](https://github.com/Ak-cybe/AWS-Security-Projects/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Ak-cybe/AWS-Security-Projects?style=social)](https://github.com/Ak-cybe/AWS-Security-Projects/network/members)
 
-<img src="assets/aws-security-hero.png" width="600" alt="AWS Security"/>
-
 </div>
 
 ---
 
 ## 🎯 About This Repository
 
-This repository contains **hands-on AWS security projects** designed to help you learn and implement cloud security best practices. Each project is beginner-friendly with step-by-step instructions, real-world scenarios, and security checklists.
+<img align="right" src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385b1be58e.gif" width="200" alt="Coding GIF"/>
 
-Whether you're preparing for AWS certifications, building your security portfolio, or just want to learn cloud security - these projects are for you!
+This repository contains **hands-on AWS security projects** designed to help you learn and implement cloud security best practices. 
+
+Each project is beginner-friendly with:
+- ✅ Step-by-step instructions
+- ✅ Real-world scenarios  
+- ✅ Security checklists
+- ✅ Architecture diagrams
+
+<br clear="right"/>
 
 ---
 
@@ -41,7 +50,7 @@ Whether you're preparing for AWS certifications, building your security portfoli
 
 ### ☁️ [Project 1: Securing EC2 Instances](Project-1-EC2-Security.md)
 
-<img src="assets/ec2-security-hero.png" width="320" alt="EC2 Security"/>
+<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="300" alt="Server GIF"/>
 
 **Learn to secure AWS EC2 instances from launch to production**
 
@@ -51,11 +60,7 @@ Whether you're preparing for AWS certifications, building your security portfoli
 | 📚 Level | Beginner |
 | 💰 Cost | Free Tier |
 
-**Skills Covered:**
-- 🔐 SSH Key-based Authentication
-- 🛡️ Security Group Configuration  
-- 🖥️ OS Hardening & SSH Hardening
-- 📊 CloudWatch Monitoring
+**Skills:** SSH Security • Security Groups • OS Hardening • CloudWatch
 
 [**→ Start Project 1**](Project-1-EC2-Security.md)
 
@@ -64,7 +69,7 @@ Whether you're preparing for AWS certifications, building your security portfoli
 
 ### 🛡️ [Project 2: IAM Least Privilege](Project-2-IAM-User-Custom-Policy.md)
 
-<img src="assets/iam-policy-hero.png" width="320" alt="IAM Policy"/>
+<img src="https://user-images.githubusercontent.com/74038190/212281775-b468df30-4edc-4bf8-a4ee-f52e1aaddc86.gif" width="300" alt="Shield GIF"/>
 
 **Master the Principle of Least Privilege with custom IAM policies**
 
@@ -74,11 +79,7 @@ Whether you're preparing for AWS certifications, building your security portfoli
 | 📚 Level | Beginner-Intermediate |
 | 💰 Cost | Free Tier |
 
-**Skills Covered:**
-- 🆔 IAM User Management
-- 📜 Custom JSON Policies
-- 🪣 S3 Bucket Permissions
-- 🔒 Resource-Level Controls
+**Skills:** IAM Users • JSON Policies • S3 Permissions • CLI Testing
 
 [**→ Start Project 2**](Project-2-IAM-User-Custom-Policy.md)
 
@@ -90,90 +91,75 @@ Whether you're preparing for AWS certifications, building your security portfoli
 
 ## 🗺️ Learning Path
 
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400" alt="Tech GIF"/>
+
+</div>
+
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                    AWS Security Learning Path                        │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                       │
-│   ┌─────────────┐      ┌─────────────┐      ┌─────────────┐         │
-│   │  Project 1  │ ──▶  │  Project 2  │ ──▶  │   Coming    │         │
-│   │  EC2 Sec    │      │  IAM Policy │      │    Soon!    │         │
-│   └─────────────┘      └─────────────┘      └─────────────┘         │
-│         │                     │                    │                  │
-│         ▼                     ▼                    ▼                  │
-│   ┌───────────┐        ┌───────────┐        ┌───────────┐           │
-│   │ Security  │        │   Least   │        │   VPC &   │           │
-│   │ Groups    │        │ Privilege │        │ Network   │           │
-│   │ SSH Keys  │        │  Policies │        │ Security  │           │
-│   │ Hardening │        │    S3     │        │   WAF     │           │
-│   └───────────┘        └───────────┘        └───────────┘           │
-│                                                                       │
-└─────────────────────────────────────────────────────────────────────┘
+   ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
+   │  Project 1  │ ──▶  │  Project 2  │ ──▶  │   Coming    │
+   │  EC2 Sec    │      │  IAM Policy │      │    Soon!    │
+   └─────────────┘      └─────────────┘      └─────────────┘
 ```
 
 ---
 
 ## 🚀 Quick Start
 
+<img align="right" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="200" alt="Terminal GIF"/>
+
 ### Prerequisites
 
-| Requirement | Description | Link |
-|-------------|-------------|------|
-| ☁️ **AWS Account** | Free tier eligible | [Create Account](https://aws.amazon.com/free/) |
-| 💻 **AWS CLI** | Command-line tool | [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) |
-| 🔑 **SSH Client** | For EC2 access | Built-in (Mac/Linux) or [PuTTY](https://www.putty.org/) |
+| Requirement | Link |
+|-------------|------|
+| ☁️ AWS Account | [Create Account](https://aws.amazon.com/free/) |
+| 💻 AWS CLI | [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) |
+| 🔑 SSH Client | Built-in or [PuTTY](https://www.putty.org/) |
 
 ### Clone the Repository
 
 ```bash
-# Clone this repository
 git clone https://github.com/Ak-cybe/AWS-Security-Projects.git
-
-# Navigate to the project
 cd AWS-Security-Projects
-
-# Start with Project 1!
 ```
+
+<br clear="right"/>
 
 ---
 
 ## 📊 Skills You'll Gain
 
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="400" alt="Skills GIF"/>
+
+</div>
+
 | Category | Skills |
 |----------|--------|
 | **Identity & Access** | IAM Users, Policies, Roles, Least Privilege |
 | **Compute Security** | EC2 Hardening, SSH Security, Security Groups |
-| **Network Security** | VPC, Security Groups, NACLs, Firewall Rules |
 | **Monitoring** | CloudWatch, CloudTrail, Alerting |
 
 ---
 
 ## 🔜 Coming Soon
 
-| Project | Description | Status |
-|---------|-------------|--------|
-| 🌐 **VPC Security** | Network isolation, NACLs, Flow Logs | 🔄 In Progress |
-| 🔐 **Secrets Manager** | Secure credential management | 📋 Planned |
-| 🚨 **GuardDuty Setup** | Threat detection & response | 📋 Planned |
-
----
-
-## 📁 Repository Structure
-
-```
-AWS-Security-Projects/
-├── 📄 README.md                 # You are here!
-├── 📄 LICENSE.md                # MIT License
-├── 📂 assets/                   # Images & diagrams
-├── 📄 Project-1-EC2-Security.md # EC2 Security Lab
-└── 📄 Project-2-IAM-User-Custom-Policy.md
-```
+| Project | Status |
+|---------|--------|
+| 🌐 **VPC Security** | 🔄 In Progress |
+| 🔐 **Secrets Manager** | 📋 Planned |
+| 🚨 **GuardDuty Setup** | 📋 Planned |
 
 ---
 
 ## 👤 Author
 
 <div align="center">
+
+<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="200" alt="Dev GIF"/>
 
 **Amresh Kumar**
 
@@ -189,6 +175,8 @@ AWS-Security-Projects/
 ## 🌟 Show Your Support
 
 <div align="center">
+
+<img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="150" alt="Star GIF"/>
 
 ⭐ **Star this repository** ⭐
 
