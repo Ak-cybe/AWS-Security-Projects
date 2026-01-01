@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![AWS Security Banner](assets/aws-security-banner.png)
+<img src="assets/aws-security-banner.png" width="500" alt="AWS Security Banner"/>
 
 <!-- Animated Server GIF -->
 <img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="300"/>
@@ -44,8 +44,6 @@
 ---
 
 ## 📖 Introduction
-
-<img align="right" src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385b1be58e.gif" width="180"/>
 
 In this project, you'll learn how to secure AWS EC2 instances from the ground up. We'll cover essential concepts including setting up security groups, configuring key pairs for SSH access, hardening the operating system, and implementing monitoring best practices.
 

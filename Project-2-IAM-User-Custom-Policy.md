@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![AWS Security Banner](assets/aws-security-banner.png)
+<img src="assets/aws-security-banner.png" width="500" alt="AWS Security Banner"/>
 
 <!-- Animated Shield GIF -->
 <img src="https://user-images.githubusercontent.com/74038190/212281775-b468df30-4edc-4bf8-a4ee-f52e1aaddc86.gif" width="300"/>
@@ -45,8 +45,6 @@
 ---
 
 ## 📖 Project Overview
-
-<img align="right" src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385b1be58e.gif" width="180"/>
 
 This project demonstrates the implementation of the **Principle of Least Privilege** in AWS. The goal was to move away from using root accounts or full-access admin users by creating a specialized IAM user with strictly limited permissions.
 

@@ -23,7 +23,7 @@
 
 <div align="center">
 
-![AWS Security Banner](assets/aws-security-banner.png)
+<img src="assets/aws-security-banner.png" width="500" alt="AWS Security Banner"/>
 
 <!-- Animated Security GIF -->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="400"/>
@@ -34,13 +34,9 @@
 
 ## 🎯 About This Repository
 
-<img align="right" src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385b1be58e.gif" width="180"/>
-
 This repository contains **hands-on AWS security projects** designed to help you learn and implement cloud security best practices. Each project is beginner-friendly with step-by-step instructions, real-world scenarios, and security checklists.
 
 Whether you're preparing for AWS certifications, building your security portfolio, or just want to learn cloud security - these projects are for you!
-
-<br clear="right"/>
 
 ---
 
