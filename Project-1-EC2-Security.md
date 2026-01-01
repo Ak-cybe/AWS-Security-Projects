@@ -4,8 +4,7 @@
 
 <img src="assets/aws-security-banner.png" width="500" alt="AWS Security Banner"/>
 
-<!-- Animated Server GIF -->
-<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="300"/>
+
 
 ![AWS](https://img.shields.io/badge/AWS-Cloud-orange?style=for-the-badge&logo=amazon-aws)
 ![EC2](https://img.shields.io/badge/EC2-Compute-blue?style=for-the-badge&logo=amazon-ec2)
